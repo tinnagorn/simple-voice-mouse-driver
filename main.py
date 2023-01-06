@@ -27,5 +27,13 @@ while True:
     pyautogui.moveRel(-10, 0)
   elif command == "เลื่อนเมาส์ไปทางขวา":
     pyautogui.moveRel(10, 0)
+  elif command == "คลิกซ้าย":
+    pyautogui.click()
+  elif command == "คลิกขวา":
+    pyautogui.rightClick()
+  elif command == "เลื่อนขึ้น":
+    pyautogui.scroll(10)
+  elif command == "เลื่อนลง":
+    pyautogui.scroll(-10)   
   elif command == "ปิดการทำงาน":
     break
