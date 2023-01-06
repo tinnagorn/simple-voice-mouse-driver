@@ -7,25 +7,25 @@ def listen_for_command():
   with sr.Microphone() as source:
     audio = r.listen(source)
   try:
-    command = r.recognize_google(audio)
+    command = r.recognize_google(audio, language='th-TH') //add thai language
     print(f"You said: {command}")
     return command
   except sr.UnknownValueError:
-    print("Sorry, I didn't understand that.")
+    print("ขออภัย, ฉันไม่เข้าใจสิ่งที่คุณพูด")
     return None
   except sr.RequestError:
-    print("Sorry, I am having trouble connecting to the internet.")
+    print("ขออภัย, ฉันมีปัญหาในการเชื่อมต่ออินเทอร์เน็ต")
     return None
 
 while True:
   command = listen_for_command()
-  if command == "move mouse up":
+  if command == "เลื่อนเมาส์ขึ้น":
     pyautogui.moveRel(0, -10)
-  elif command == "move mouse down":
+  elif command == "เลื่อนเมาส์ลง":
     pyautogui.moveRel(0, 10)
-  elif command == "move mouse left":
+  elif command == "เลื่อนเมาส์ไปทางซ้าย":
     pyautogui.moveRel(-10, 0)
-  elif command == "move mouse right":
+  elif command == "เลื่อนเมาส์ไปทางขวา":
     pyautogui.moveRel(10, 0)
-  elif command == "quit":
+  elif command == "ปิดการทำงาน":
     break
